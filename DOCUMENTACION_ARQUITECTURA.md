@@ -139,9 +139,9 @@ El sistema implementa una **Arquitectura de Microservicios** con los siguientes 
 └────────────────────┬────────────────────────────────────┘
                      │ HTTPS
                      ▼
-┌─────────────────────────────────────────────────────────┐
-│         E-Commerce Microservices Platform               │
-│                                                         │
+┌────────────────────────────────────────────────────────┐
+│         E-Commerce Microservices Platform              │
+│                                                        │
 │  • Autenticación y Autorización                        │
 │  • Gestión de Productos                                │
 │  • Procesamiento de Órdenes                            │
@@ -172,24 +172,24 @@ El sistema implementa una **Arquitectura de Microservicios** con los siguientes 
                │ HTTP/REST + JWT
     ┌──────────┼──────────┬──────────┬──────────┐
     │          │          │          │          │
-┌───▼────┐ ┌──▼─────┐ ┌──▼──────┐ ┌─▼─────────┐
+┌───▼────┐ ┌──▼─────┐ ┌──▼──────┐ ┌─▼──────────┐
 │ Auth   │ │Product │ │ Order   │ │Notification│
-│Service │ │Service │ │Service  │ │  Service  │
-│:8081   │ │:8082   │ │:8083    │ │  :8084    │
-│        │ │        │ │         │ │           │
-│Spring  │ │Spring  │ │Spring   │ │  Spring   │
-│Boot    │ │Boot    │ │Boot     │ │  Boot     │
-└───┬────┘ └───┬────┘ └───┬─────┘ └─────┬─────┘
+│Service │ │Service │ │Service  │ │  Service   │
+│:8081   │ │:8082   │ │:8083    │ │  :8084     │
+│        │ │        │ │         │ │            │
+│Spring  │ │Spring  │ │Spring   │ │  Spring    │
+│Boot    │ │Boot    │ │Boot     │ │  Boot      │
+└───┬────┘ └───┬────┘ └───┬─────┘ └─────┬──────┘
     │          │          │             │
     │          │          │ Kafka       │
     │          │          │ Events      │
     │          │          └─────────────►
     │          │                        │
-┌───▼────┐ ┌──▼─────┐ ┌──▼──────┐ ┌───▼───────┐
-│Postgres│ │Postgres│ │Postgres │ │ Postgres  │
+┌───▼────┐ ┌──▼─────┐ ┌──▼──────┐ ┌───▼────────┐
+│Postgres│ │Postgres│ │Postgres │ │ Postgres   │
 │auth_db │ │product │ │order_db │ │notification│
-│:5432   │ │_db     │ │:5434    │ │_db :5435  │
-└────────┘ │:5433   │ └─────────┘ └───────────┘
+│:5432   │ │_db     │ │:5434    │ │_db :5435   │
+└────────┘ │:5433   │ └─────────┘ └────────────┘
            └────────┘
                 │
         ┌───────▼────────┐
@@ -1381,8 +1381,9 @@ Developer → Commit → CI Pipeline
 **Pirámide de Testing:**
 
 ```
-        ╱╲
-       ╱E2E╲         10% - Tests End-to-End
+         ╱╲
+        ╱  ╲
+       ╱ E2E╲         10% - Tests End-to-End
       ╱──────╲
      ╱ Integr ╲      20% - Tests de Integración
     ╱──────────╲
@@ -1864,5 +1865,4 @@ public class AuthService {
 
 **Documento generado:** 18 de diciembre de 2025  
 **Versión:** 1.0  
-**Autor:** Equipo de Arquitectura E-Commerce Platform  
-**Próxima revisión:** Trimestral o ante cambios arquitectónicos significativos
+**Autor:** Rafael Tijero Fuentes
